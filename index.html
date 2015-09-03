@@ -13,8 +13,19 @@
     }
     </style>
     <script>
+    var numRandoms = 39;
+    // preload images
+    function preload() {
+      var images = new Array(numRandoms);
+      for (var i = 1; i <= numRandoms; i++) {
+        images[i] = new Image();
+        images[i].src = "./bg/" + i + ".jpg";
+      }
+      return images;
+    }
+    var images = preload();
+
     var uniqueRandoms = [];
-    var numRandoms = 40;
     var randomVal;
     function r()
     {
@@ -32,13 +43,13 @@
 
     function p()
     {
-      (new Image).src="http://sujay.xyz/bg/"+randomVal.toString()+".jpg"
+      (new Image).src="./bg/"+randomVal.toString()+".jpg"
     }
 
     function f()
     {
       var n=document.getElementById("container");
-      n.style.background="url('http://sujay.xyz/bg/"+randomVal.toString()+".jpg') no-repeat center center fixed",
+      n.style.background="url('./bg/"+randomVal.toString()+".jpg') no-repeat center center fixed",
       n.style.backgroundSize="100% 100%",r(),p()
     }
     </script>
